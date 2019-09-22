@@ -1,6 +1,15 @@
 {
   "blog": {},
-  "gallery": [],
+  "gallery": [
+    "https://firebasestorage.googleapis.com/v0/b/kotlin-everywhere-dev.appspot.com/o/images%2Fgallery%2FIMG_8169.jpg?alt=media&token=03f250a4-02ec-48fd-a9a3-0f34cfdda2df",
+    "https://firebasestorage.googleapis.com/v0/b/kotlin-everywhere-dev.appspot.com/o/images%2Fgallery%2Frsz_img_8186.jpg?alt=media&token=27c2aa19-2a85-48db-a201-0341ef1445e2",
+    "https://firebasestorage.googleapis.com/v0/b/kotlin-everywhere-dev.appspot.com/o/images%2Fgallery%2FIMG_8279.jpg?alt=media&token=8717d033-7a8e-4415-aa90-f39ac6f42359",
+    "https://firebasestorage.googleapis.com/v0/b/kotlin-everywhere-dev.appspot.com/o/images%2Fgallery%2FIMG_8326.jpg?alt=media&token=49d9fafd-5024-4882-b36e-358da7ec2811",
+    "https://firebasestorage.googleapis.com/v0/b/kotlin-everywhere-dev.appspot.com/o/images%2Fgallery%2FIMG_8373.jpg?alt=media&token=9ccb8ae7-112d-40f7-ba3e-34745522263a",
+    "https://firebasestorage.googleapis.com/v0/b/kotlin-everywhere-dev.appspot.com/o/images%2Fgallery%2Frsz_img_8476.jpg?alt=media&token=2039582a-b728-40da-8a84-c1789db4d109",
+    "https://firebasestorage.googleapis.com/v0/b/kotlin-everywhere-dev.appspot.com/o/images%2Fgallery%2FIMG_9379.jpg?alt=media&token=d326a5ac-951d-4120-a47c-8b68aef77f47",
+    "https://firebasestorage.googleapis.com/v0/b/kotlin-everywhere-dev.appspot.com/o/images%2Fgallery%2FIMG_9492.jpg?alt=media&token=34ba1fba-6d2a-42e6-8d30-a3c5d89cd4e2"
+  ],
   "notifications": {
     "config": {
       "icon": "",
@@ -219,6 +228,7 @@
       "complexity": "Intermediate",
       "description": "The kotlinx.serialization library supports serialization of Kotlin classes to different formats on all supported platforms. If you ever wondered how this magic works and what decisions were made to make this library, this talk is for you. First, we will cover various user scenarios, how the library plays together with them, and what classes do you need to solve your problem. Then, we will dive into low-level interfaces and how the compiler plugin helps us avoid reflection. In the last part, an interesting little example of writing your own serialization format will be presented.",
       "language": "English",
+      "presentation": "https://docs.google.com/presentation/d/1SuK6BPiKTQTNe4Cd-AtgVzbYn1ewWoEZIPW7N4AXes0/edit?usp=sharing",
       "speakers": [
         "leonid_startsev"
       ],
@@ -231,6 +241,7 @@
       "complexity": "Intermediate",
       "description": "Kotlin Coroutines is the most trending solution for asynchrony programming in Android development for now. Developers of many existed apps already add them and new apps use Coroutines instead of RxJava by deault.\n\nBut how to make that work with Coroutines the most efficient and get the most effective architecture? Kirill has few rules and best practices of how to do that.",
       "language": "Russian",
+      "presentation": "https://speakerdeck.com/krlrozov/coroutining-android-apps",
       "speakers": [
         "kirill_rozov"
       ],
@@ -245,6 +256,7 @@
       "complexity": "Intermediate",
       "description": "This talk will be about code reuse with Kotlin Multiplatform between Android and iOS and possibilities to expand it on Backend and Web. The preferred architecture for maximisations of this reuse will be shown. And also we will compare the pros and cons of this approach with Native mobile development and Flutter.",
       "language": "English",
+      "presentation": "https://drive.google.com/open?id=1-BUSpw6rn99Tea3LoXuTr5dcqIVyFD7w",
       "speakers": [
         "andrey_beryukhov"
       ],
@@ -310,6 +322,7 @@
       "complexity": "Intermediate",
       "description": "This tutorial helps you get started deploying your Kotlin app using the Spring Boot Framework to Google Kubernetes Engine, Google's hosting solution for containerized applications. Kubernetes Engine, earlier known as Google Container Engine, is based on the popular open-source Kubernetes system, and leverages Google's deep expertise with container-based deployments.",
       "language": "Russian",
+      "presentation": "https://github.com/SuppieRK/kotlin-gke-demo",
       "speakers": [
         "roman_khlebnov"
       ],
