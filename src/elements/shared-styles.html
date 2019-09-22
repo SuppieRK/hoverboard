@@ -6,17 +6,20 @@
   <template>
     <style>
       :host {
-        --dark-primary-color: #512DA8;
-        --default-primary-color: #673AB7;
-        --focused-color: #311B92;
-        --light-primary-color: #D1C4E9;
-        --text-primary-color: #FFFFFF;
-        --accent-color: #FF5252;
+        --toolbar-logo-color: #000000;
+        --dark-primary-color: #FBC02D;
+        --default-primary-color: #FFF582;
+        --focused-color: #FFCB82;
+        --light-primary-color: #FFF9C4;
+        --text-primary-color: #212121;
+        --hero-font-color: #212121;
+        /*--accent-color: #FF9800;*/
+        --accent-color: #5848F4;
         --primary-background-color: #FFFFFF;
-        --primary-text-color: #424242;
+        --primary-text-color: #212121;
         --secondary-text-color: #757575;
         --disabled-text-color: #BDBDBD;
-        --divider-color: #EDEDED;
+        --divider-color: #BDBDBD;
         --footer-background-color: #F5F5F5;
         --footer-text-color: #616161;
         --twitter-color: #4099FF;
@@ -33,14 +36,14 @@
 
         --slideAnimation: 0.4s cubic-bezier(0, 0, 0.2, 1);
         --border-radius: 4px;
-        --box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
-        --box-shadow-primary-color: 0 3px 3px -2px rgba(103, 58, 183, 0.3), 0 3px 4px 0 rgba(103, 58, 183, 0.3), 0 1px 8px 0 rgba(103, 58, 183, 0.3);
-        --box-shadow-primary-color-hover: 0 1px 3px -2px rgba(103, 58, 183, 0.4), 0 4px 5px 0 rgba(103, 58, 183, 0.4), 0 2px 9px 0 rgba(103, 58, 183, 0.4);
+        --box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12);
+        --box-shadow-primary-color: 0 3px 3px -2px rgba(255, 245, 130, 0.3), 0 3px 4px 0 rgba(255, 245, 130, 0.3), 0 1px 8px 0 rgba(255, 245, 130, 0.3);
+        --box-shadow-primary-color-hover: 0 1px 3px -2px rgba(255, 245, 130, 0.4), 0 4px 5px 0 rgba(255, 245, 130, 0.4), 0 2px 9px 0 rgba(255, 245, 130, 0.4);
         --font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif; /*TODO Change to Open Sans*/
         --max-container-width: 1280px;
 
-        --primary-color-transparent: rgba(103, 58, 183, 0.1);
-        --primary-color-light: rgba(103, 58, 183, 0.8);
+        --primary-color-transparent: rgba(255, 245, 130, 0.1);
+        --primary-color-light: rgba(255, 245, 130, 0.8);
         --primary-color-white: #EDE7F6;
 
         /* Labels */
@@ -94,7 +97,7 @@
       }
 
       a {
-        color: var(--default-primary-color);
+        color: var(--accent-color);
         text-decoration: none;
         transition: border-color var(--animation);
       }
@@ -103,7 +106,7 @@
         padding: 0.7em;
         border-radius: 2px;
         font-size: 14px;
-        color: var(--default-primary-color);
+        color: var(--accent-color);
         transition: background-color var(--animation);
       }
 
@@ -132,7 +135,8 @@
       }
 
       paper-button[primary][invert]:hover {
-        background-color: var(--primary-color-white);
+        color: var(--text-primary-color);
+        background-color: var(--default-primary-color);
       }
 
       paper-button[primary-text] {
@@ -218,13 +222,10 @@
       }
 
       .tag {
-        height: 32px;
-        padding: 8px 12px;
+        margin-right: 2px;
+        padding: 2px 4px;
         font-size: 12px;
-        color: currentColor;
-        background: white;
         border: 1px solid currentColor;
-        border-radius: 32px;
       }
 
       @media (min-width: 640px) {

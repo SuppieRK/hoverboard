@@ -44,7 +44,7 @@ Color and images for header can be configured via `data/settings.json` in `heroS
     "description": "Be a hero. Be a GDG!",
     "background": {
       "color": "#673ab7",
-      "image": "/images/backgrounds/home.jpg"
+      "image": "/images/backgrounds/home.png"
     },
     "fontColor": "#FFF"
   },

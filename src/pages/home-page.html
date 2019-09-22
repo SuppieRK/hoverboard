@@ -38,6 +38,10 @@
         font-size: 22px;
       }
 
+      .info-item {
+        color: var(--primary-text-color);
+      }
+
       .info-items > *:not(:first-of-type) {
         margin-top: 4px;
       }
@@ -62,14 +66,14 @@
 
       .scroll-down {
         margin-top: 24px;
-        color: currentColor;
+        color: var(--primary-text-color);
         user-select: none;
         cursor: pointer;
       }
 
       .scroll-down svg {
         width: 24px;
-        opacity: 0.6;
+        opacity: 1;
       }
 
       .scroll-down .stroke {
@@ -142,34 +146,64 @@
       <div class="home-content" layout vertical center>
         <plastic-image class="hero-logo" srcset="/images/logo.svg" alt="{$ title $}"></plastic-image>
         <div class="info-items highlight-font">
-          <div class="info-item">{$ location.city $}. {$ dates $}</div>
-          <div class="info-item">{$ heroSettings.home.description $}</div>
+          <div class="info-item">{$ location.city $}</div>
+          <div class="info-item">{$ dates $}</div>
         </div>
 
 
         <div class="action-buttons" layout horizontal center-justified wrap>
-          <paper-button
-            class="watch-video"
-            on-tap="_playVideo"
-            ga-on="click"
-            ga-event-category="video"
-            ga-event-action="watch"
-            ga-event-label="hero block - view highlights"
+<!--          <paper-button-->
+<!--            class="watch-video"-->
+<!--            on-tap="_playVideo"-->
+<!--            ga-on="click"-->
+<!--            ga-event-category="video"-->
+<!--            ga-event-action="watch"-->
+<!--            ga-event-label="hero block - view highlights"-->
+<!--          >-->
+<!--            <iron-icon icon="hoverboard:movie"></iron-icon>-->
+<!--            {$ viewHighlights $}-->
+<!--          </paper-button>-->
+<!--          <paper-button-->
+<!--            on-tap="_scrollToTickets"-->
+<!--            ga-on="click"-->
+<!--            ga-event-category="tickets"-->
+<!--            ga-event-action="scroll"-->
+<!--            ga-event-label="hero block - scroll to tickets"-->
+<!--            primary invert-->
+<!--          >-->
+<!--            <iron-icon icon="hoverboard:ticket"></iron-icon>-->
+<!--            {$ buyTicket $}-->
+<!--          </paper-button>-->
+          <!--<a href="https://forms.gle/a5YWa9JuLY2dfxcs9"
+             target="_blank"
+             rel="noopener noreferrer"
           >
-            <iron-icon icon="hoverboard:movie"></iron-icon>
-            {$ viewHighlights $}
-          </paper-button>
-          <paper-button
-            on-tap="_scrollToTickets"
-            ga-on="click"
-            ga-event-category="tickets"
-            ga-event-action="scroll"
-            ga-event-label="hero block - scroll to tickets"
-            primary invert
+            <paper-button
+              ga-on="click"
+              ga-event-category="link"
+              ga-event-action="open"
+              ga-event-label="hero block - call for papers"
+              primary invert
+            >
+              <iron-icon icon="hoverboard:call-for-papers"></iron-icon>
+              {$ becomeSpeaker $}
+            </paper-button>
+          </a>-->
+          <!--<a href="https://kotlin-nn.timepad.ru/event/1025121"
+             target="_blank"
+             rel="noopener noreferrer"
           >
-            <iron-icon icon="hoverboard:ticket"></iron-icon>
-            {$ buyTicket $}
-          </paper-button>
+            <paper-button
+              ga-on="click"
+              ga-event-category="link"
+              ga-event-action="open"
+              ga-event-label="hero block - sign up for event"
+              primary invert
+            >
+              <iron-icon icon="hoverboard:ticket"></iron-icon>
+              {$ buyTicket $}
+            </paper-button>
+          </a>-->
         </div>
 
         <div class="scroll-down" on-tap="_scrollNextBlock">
@@ -182,13 +216,13 @@
       </div>
     </hero-block>
     <about-block></about-block>
-    <speakers-block></speakers-block>
+<!--    <speakers-block></speakers-block>-->
     <subscribe-block></subscribe-block>
-    <tickets-block></tickets-block>
-    <gallery-block></gallery-block>
+<!--    <tickets-block></tickets-block>-->
+<!--    <gallery-block></gallery-block>-->
     <about-organizer-block></about-organizer-block>
-    <featured-videos></featured-videos>
-    <latest-posts-block></latest-posts-block>
+<!--    <featured-videos></featured-videos>-->
+<!--    <latest-posts-block></latest-posts-block>-->
     <map-block></map-block>
     <partners-block></partners-block>
     <footer-block></footer-block>

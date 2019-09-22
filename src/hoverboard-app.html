@@ -211,11 +211,6 @@
             data-route="home"
             data-path="pages/home-page.html"
           ></home-page>
-          <blog-page
-            data-route="blog"
-            data-path="pages/blog-page.html"
-            route="[[subroute]]"
-          ></blog-page>
           <schedule-page
             data-route="schedule"
             data-path="pages/schedule-page.html"
@@ -226,11 +221,11 @@
             data-path="pages/speakers-page.html"
             route="[[subroute]]"
           ></speakers-page>
-          <previous-speakers-page
-            data-route="previous-speakers"
-            data-path="pages/previous-speakers-page.html"
-            route="[[subroute]]"
-          ></previous-speakers-page>
+<!--          <previous-speakers-page-->
+<!--            data-route="previous-speakers"-->
+<!--            data-path="pages/previous-speakers-page.html"-->
+<!--            route="[[subroute]]"-->
+<!--          ></previous-speakers-page>-->
           <team-page
             data-route="team"
             data-path="pages/team-page.html"
@@ -280,17 +275,17 @@
       no-cancel-on-outside-click="[[viewport.isPhone]]"
     ></session-details>
 
-    <subscribe-dialog
+    <!--<subscribe-dialog
       opened="[[dialogs.subscribe.isOpened]]"
       data="[[dialogs.subscribe.data]]"
       with-backdrop
       no-cancel-on-outside-click="[[viewport.isPhone]]">
-    </subscribe-dialog>
+    </subscribe-dialog>-->
 
-    <signin-dialog
+    <!--<signin-dialog
       opened="[[dialogs.signin.isOpened]]"
       with-backdrop>
-    </signin-dialog>
+    </signin-dialog>-->
 
     <hoverboard-analytics></hoverboard-analytics>
     <toast-element></toast-element>

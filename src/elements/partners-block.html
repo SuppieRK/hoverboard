@@ -36,7 +36,7 @@
 
       .cta-button {
         margin-top: 24px;
-        color: var(--default-primary-color);
+        color: var(--accent-color);
       }
 
       @media (min-width: 640px) {
@@ -66,7 +66,7 @@
                 title$="[[logo.name]]"
                 target="_blank"
                 rel="noopener noreferrer"
-                layout horizontal center-center
+                layout horizontal flex center-center
               >
                 <plastic-image
                   class="logo-img"
@@ -80,11 +80,12 @@
           </div>
       </template>
 
-      <paper-button class="cta-button animated icon-right"
-        on-tap="_addPotentialPartner">
-        <span>{$ partnersBlock.button $}</span>
-        <iron-icon icon="hoverboard:arrow-right-circle"></iron-icon>
-      </paper-button>
+      <a href="mailto:gdgnizny@gmail.com?cc=nn.kotlin.usergroup@gmail.com" target="_blank">
+        <paper-button class="cta-button animated icon-right"><!-- on-tap="_addPotentialPartner"> -->
+          <span>{$ partnersBlock.button $}</span>
+          <iron-icon icon="hoverboard:arrow-right-circle"></iron-icon>
+        </paper-button>
+      </a>
     </div>
 
   </template>

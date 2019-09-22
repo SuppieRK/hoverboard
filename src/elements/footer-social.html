@@ -168,29 +168,66 @@
       </div>
     </div>
 
-    <div class="social-group blog">
+    <!--<div class="social-group blog">
       <div class="title">
         {$ followOur $}
         <a href="{$ organizer.blog $}" {% if organizer.blog.startsWith('http') %} target="_blank" rel="noopener noreferrer" {% endif %}>{$ footer.blog $}</a>
       </div>
-    </div>
+    </div>-->
 
     <div class="social-group social-networks">
-      <div class="title">{$ followUs $} </div>
+      <div class="title">{$ followUs $}</div>
       <ul class="nav-inline">
         {% for socFollow in socialNetwork.follow %}
-          <li>
-            <a href="{$ socFollow.url $}"
-                target="_blank"
-                rel="noopener noreferrer"
-                ga-on="click"
-                ga-event-category="social"
-                ga-event-action="follow"
-                ga-event-label="{$ socFollow.name $}">
-              <paper-icon-button icon="hoverboard:{$ socFollow.name $}"></paper-icon-button>
-            </a>
-          </li>
+        <li>
+          <a href="{$ socFollow.url $}"
+             target="_blank"
+             rel="noopener noreferrer"
+             ga-on="click"
+             ga-event-category="social"
+             ga-event-action="follow"
+             ga-event-label="{$ socFollow.name $}">
+            <paper-icon-button icon="hoverboard:{$ socFollow.name $}"></paper-icon-button>
+          </a>
+        </li>
         {% endfor %}
+      </ul>
+
+      <div class="title">Follow KUG</div>
+      <ul class="nav-inline">
+        <li>
+          <a href="https://www.meetup.com/kotlin_nn/"
+             target="_blank"
+             rel="noopener noreferrer"
+             ga-on="click"
+             ga-event-category="social"
+             ga-event-action="follow"
+             ga-event-label="Meetup">
+            <paper-icon-button icon="hoverboard:meetup"></paper-icon-button>
+          </a>
+        </li>
+        <li>
+          <a href="https://vk.com/kotlin_nn"
+             target="_blank"
+             rel="noopener noreferrer"
+             ga-on="click"
+             ga-event-category="social"
+             ga-event-action="follow"
+             ga-event-label="VK">
+            <paper-icon-button icon="hoverboard:vkontakte"></paper-icon-button>
+          </a>
+        </li>
+        <li>
+          <a href="https://twitter.com/kotlin_nn"
+             target="_blank"
+             rel="noopener noreferrer"
+             ga-on="click"
+             ga-event-category="social"
+             ga-event-action="follow"
+             ga-event-label="Twitter">
+            <paper-icon-button icon="hoverboard:twitter"></paper-icon-button>
+          </a>
+        </li>
       </ul>
     </div>
 
@@ -206,7 +243,9 @@
 
     // eslint-disable-next-line no-undef
     class FooterSocial extends ShareMixin(Polymer.Element) {
-      static get is() {return 'footer-social';}
+      static get is() {
+        return 'footer-social';
+      }
     }
 
     window.customElements.define(FooterSocial.is, FooterSocial);

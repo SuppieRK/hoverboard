@@ -26,8 +26,8 @@
 
       .footer-logo {
         margin: 10px 30px 0 0;
-        height: 24px;
-        width: 120px;
+        height: 48px;
+        width: 240px;
         float: left;
       }
 
@@ -67,9 +67,18 @@
       <a href="{$ organizer.url $}" target="_blank" rel="noopener noreferrer">
         <plastic-image
           class="footer-logo"
-          srcset="../../images/organizer-logo.svg"
+          srcset="../../images/organizer-logo-gdg.svg"
           sizing="contain"
           alt="{$ organizer.name $}"
+          lazy-load
+        ></plastic-image>
+      </a>
+      <a href="https://www.meetup.com/kotlin_nn/" target="_blank" rel="noopener noreferrer">
+        <plastic-image
+          class="footer-logo"
+          srcset="../../images/organizer-logo-kug.svg"
+          sizing="contain"
+          alt="Kotlin Nizhny Novgorod User Group"
           lazy-load
         ></plastic-image>
       </a>

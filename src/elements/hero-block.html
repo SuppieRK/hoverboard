@@ -20,7 +20,6 @@
       }
 
       .hero-overlay {
-        background-color: rgba(0, 0, 0, 0.6);
         opacity: 0;
         transition: opacity 0.3s;
         position: absolute;
@@ -81,7 +80,7 @@
         srcset="[[backgroundImage]]"
         style$="background-color: [[backgroundColor]]"
         sizing="cover"
-        lazy-load preload fade fit
+        lazy-load preload fit
       ></plastic-image>
       <div class="hero-overlay" show$="[[_showOverlay(backgroundImage)]]" fit></div>
       <div class="container">

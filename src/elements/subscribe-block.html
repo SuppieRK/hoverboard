@@ -8,56 +8,83 @@
 <dom-module id="subscribe-block">
   <template>
     <style include="shared-styles flex flex-alignment">      :host {
-        display: flex;
-        width: 100%;
-        background: var(--default-primary-color);
-        color: #fff;
-        padding: 16px 0;
+      display: flex;
+      width: 100%;
+      background: var(--default-primary-color);
+      color: #000;
+      padding: 16px 0;
+    }
+
+    .description {
+      font-size: 24px;
+      line-height: 1.5;
+      margin: 0 0 16px;
+    }
+
+    paper-button {
+      color: #000;
+    }
+
+    paper-button[disabled] {
+      background: var(--default-primary-color);
+      color: #000;
+    }
+
+    .social-media-groups {
+
+    }
+
+    @media (min-width: 640px) {
+      :host {
+        padding: 32px 0;
       }
 
       .description {
-        font-size: 24px;
-        line-height: 1.5;
-        margin: 0 0 16px;
+        font-size: 32px;
+        margin: 0 0 24px;
+        text-align: center;
       }
-
-      paper-button {
-        color: #fff;
-      }
-
-      paper-button[disabled] {
-        background: var(--default-primary-color);
-        color: #fff;
-      }
-
-      @media (min-width: 640px) {
-        :host {
-          padding: 32px 0;
-        }
-
-        .description {
-          font-size: 32px;
-          margin: 0 0 24px;
-          text-align: center;
-        }
-      }
+    }
 
 
     </style>
 
     <div class="container" layout vertical center$="[[viewport.isTabletPlus]]">
       <div class="description"> {$ subscribeBlock.callToAction.description $}</div>
-      <div class="cta-button">
-        <paper-button class="animated icon-right"
-                      disabled$="[[subscribed]]"
-                      on-tap="_subscribe"
-                      ga-on="click"
-                      ga-event-category="attendees"
-                      ga-event-action="subscribe"
-                      ga-event-label="subscribe block">
-          <span class="cta-label">[[ctaLabel]]</span>
-          <iron-icon icon$="hoverboard:[[ctaIcon]]"></iron-icon>
-        </paper-button>
+      <div class="social-media-groups" layout horizontal center$="[[viewport.isTabletPlus]]"
+           style="display: inline-flex">
+        <div>
+          <a href="https://vk.com/gdgnizhny" target="_blank" rel="noopener noreferrer">
+            <paper-button ga-on="click" ga-event-category="link" ga-event-action="open"
+                          ga-event-label="subscribe block">
+              GDG VKontakte
+              <paper-icon-button icon="hoverboard:vkontakte"></paper-icon-button>
+            </paper-button>
+          </a>
+          <a href="https://tglink.ru/gdgnn" target="_blank" rel="noopener noreferrer">
+            <paper-button ga-on="click" ga-event-category="link" ga-event-action="open"
+                          ga-event-label="subscribe block">
+              GDG Telegram
+              <paper-icon-button icon="hoverboard:telegram"></paper-icon-button>
+            </paper-button>
+          </a>
+        </div>
+        <div>
+          <a href="https://vk.com/kotlin_nn" target="_blank" rel="noopener noreferrer">
+            <paper-button ga-on="click" ga-event-category="link" ga-event-action="open"
+                          ga-event-label="subscribe block">
+              KUG VKontakte
+              <paper-icon-button icon="hoverboard:vkontakte"></paper-icon-button>
+            </paper-button>
+          </a>
+          <a href="https://tglink.ru/kotlin_nn" target="_blank" rel="noopener noreferrer">
+            <paper-button ga-on="click" ga-event-category="link" ga-event-action="open"
+                          ga-event-label="subscribe block">
+              KUG Telegram
+              <paper-icon-button icon="hoverboard:telegram"></paper-icon-button>
+            </paper-button>
+          </a>
+        </div>
       </div>
     </div>
 
@@ -65,79 +92,78 @@
 
   <script>
 
-    class SubscribeBlock extends ReduxMixin(Polymer.Element) {
-      static get is() {
-        return 'subscribe-block';
+      class SubscribeBlock extends ReduxMixin(Polymer.Element) {
+          static get is() {
+              return 'subscribe-block';
+          }
+
+          static get properties() {
+              return {
+                  user: {
+                      type: Object,
+                      statePath: 'user',
+                  },
+                  viewport: {
+                      type: Object,
+                      statePath: 'ui.viewport',
+                  },
+                  subscribed: {
+                      type: Boolean,
+                      statePath: 'subscribed',
+                      observer: '_handleSubscribed',
+                  },
+                  ctaIcon: {
+                      type: String,
+                      value: 'arrow-right-circle',
+                  },
+                  ctaLabel: {
+                      type: String,
+                      value: '{$  subscribeBlock.callToAction.label $}',
+                  },
+              };
+          }
+
+          _handleSubscribed(subscribed) {
+              if (subscribed) {
+                  this.ctaIcon = 'checked';
+                  this.ctaLabel = '{$  subscribeBlock.subscribed $}';
+              } else {
+                  this.ctaIcon = 'arrow-right-circle';
+                  this.ctaLabel = '{$  subscribeBlock.callToAction.label $}';
+              }
+          }
+
+          _subscribe() {
+              let userData = {};
+
+              if (this.user.signedIn) {
+                  const fullNameSplit = this.user.displayName.split(' ');
+                  userData = {
+                      firstFieldValue: fullNameSplit[0],
+                      secondFieldValue: fullNameSplit[1],
+                  };
+              }
+
+              if (this.user.email) {
+                  this._subscribeAction(Object.assign({}, {email: this.user.email}, userData));
+              } else {
+                  dialogsActions.openDialog(DIALOGS.SUBSCRIBE, {
+                      title: '{$ subscribeBlock.formTitle $}',
+                      submitLabel: ' {$ subscribeBlock.subscribe $}',
+                      firstFieldLabel: '{$ subscribeBlock.firstName $}',
+                      secondFieldLabel: '{$ subscribeBlock.lastName $}',
+                      firstFieldValue: userData.firstFieldValue,
+                      secondFieldValue: userData.secondFieldValue,
+                      submit: (data) => this._subscribeAction(data),
+                  });
+              }
+          }
+
+          _subscribeAction(data) {
+              this.dispatch(subscribeActions.subscribe(data));
+          }
       }
 
-      static get properties() {
-        return {
-          user: {
-            type: Object,
-            statePath: 'user',
-          },
-          viewport: {
-            type: Object,
-            statePath: 'ui.viewport',
-          },
-          subscribed: {
-            type: Boolean,
-            statePath: 'subscribed',
-            observer: '_handleSubscribed',
-          },
-          ctaIcon: {
-            type: String,
-            value: 'arrow-right-circle',
-          },
-          ctaLabel: {
-            type: String,
-            value: '{$  subscribeBlock.callToAction.label $}',
-          },
-        };
-      }
-
-      _handleSubscribed(subscribed) {
-        if (subscribed) {
-          this.ctaIcon = 'checked';
-          this.ctaLabel = '{$  subscribeBlock.subscribed $}';
-        }
-        else {
-          this.ctaIcon = 'arrow-right-circle';
-          this.ctaLabel = '{$  subscribeBlock.callToAction.label $}';
-        }
-      }
-
-      _subscribe() {
-        let userData = {};
-
-        if (this.user.signedIn) {
-          const fullNameSplit = this.user.displayName.split(' ');
-          userData = {
-            firstFieldValue: fullNameSplit[0],
-            secondFieldValue: fullNameSplit[1],
-          };
-        }
-
-        if (this.user.email) {
-          this._subscribeAction(Object.assign({}, { email: this.user.email }, userData));
-        } else {
-          dialogsActions.openDialog(DIALOGS.SUBSCRIBE, {
-            title: '{$ subscribeBlock.formTitle $}',
-            submitLabel: ' {$ subscribeBlock.subscribe $}',
-            firstFieldLabel: '{$ subscribeBlock.firstName $}',
-            secondFieldLabel: '{$ subscribeBlock.lastName $}',
-            firstFieldValue: userData.firstFieldValue,
-            secondFieldValue: userData.secondFieldValue,
-            submit: (data) => this._subscribeAction(data),
-          });
-        }
-      }
-
-      _subscribeAction(data) {
-        this.dispatch(subscribeActions.subscribe(data));
-      }
-    }
-
-    window.customElements.define(SubscribeBlock.is, SubscribeBlock);
+      window.customElements.define(SubscribeBlock.is, SubscribeBlock);
   </script>
 </dom-module>

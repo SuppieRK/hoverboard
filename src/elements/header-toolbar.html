@@ -17,10 +17,10 @@
       }
 
       :host([transparent]) {
-        --iron-icon-fill-color: var(--hero-font-color, '#fff');
+        --iron-icon-fill-color: var(--primary-text-color);
         background-color: transparent;
         border-bottom-color: transparent;
-        color: var(--hero-font-color, '#fff');
+        color: var(--primary-text-color);
       }
 
       :host([transparent]) .toolbar-logo {
@@ -38,14 +38,14 @@
       .toolbar-logo {
         display: block;
         width: 150px;
-        height: 32px;
-        background-color: var(--default-primary-color);
+        height: 36px;
+        background-color: var(--toolbar-logo-color);
         transition: background-color var(--animation);
         -webkit-mask: url('/images/logo-monochrome.svg') no-repeat;
       }
 
       .nav-items {
-        --paper-tabs-selection-bar-color: var(--default-primary-color);
+        --paper-tabs-selection-bar-color: var(--toolbar-logo-color);
         --paper-tabs: {
           height: 64px;
         };
@@ -149,15 +149,15 @@
         </paper-tab>
         {% endfor %}
 
-        <paper-tab class="signin-tab" on-tap="signIn" link hidden$="[[user.signedIn]]">{$ signIn $}</paper-tab>
+<!--        <paper-tab class="signin-tab" on-tap="signIn" link hidden$="[[user.signedIn]]">{$ signIn $}</paper-tab>-->
 
-        <a href$="[[_getTicketUrl(tickets)]]" target="_blank" rel="noopener noreferrer" ga-on="click"
-           ga-event-category="ticket button" ga-event-action="buy_click">
-          <paper-button class="buy-button" primary>{$ buyTicket $}</paper-button>
-        </a>
+<!--        <a href$="[[_getTicketUrl(tickets)]]" target="_blank" rel="noopener noreferrer" ga-on="click"-->
+<!--           ga-event-category="ticket button" ga-event-action="buy_click">-->
+<!--          <paper-button class="buy-button" primary>{$ buyTicket $}</paper-button>-->
+<!--        </a>-->
       </paper-tabs>
 
-      <paper-menu-button
+      <!--<paper-menu-button
         id="notificationsMenu"
         class="notifications-menu"
         vertical-align="top"
@@ -191,9 +191,9 @@
             </div>
           </div>
         </div>
-      </paper-menu-button>
+      </paper-menu-button>-->
 
-      <paper-menu-button
+      <!--<paper-menu-button
         class="auth-menu"
         hidden$="[[!user.signedIn]]"
         vertical-align="top"
@@ -221,7 +221,7 @@
         icon="hoverboard:account"
         on-tap="signIn"
         hidden$="[[_isAccountIconHidden(user.signedIn, viewport.isLaptopPlus)]]"
-      ></paper-icon-button>
+      ></paper-icon-button>-->
     </app-toolbar>
 
   </template>
@@ -346,7 +346,7 @@
         this.updateStyles({
           '--hero-font-color': settings.fontColor || '',
           '--hero-logo-opacity': settings.hideLogo ? '0' : '1',
-          '--hero-logo-color': settings.backgroundImage ? '#fff' : 'var(--default-primary-color)',
+          '--hero-logo-color': settings.backgroundImage ? '#fff' : 'var(--toolbar-logo-color)',
         });
       }
     }

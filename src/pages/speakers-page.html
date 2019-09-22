@@ -14,7 +14,7 @@
 <link rel="import" href="../elements/shared-styles.html">
 <link rel="import" href="../elements/content-loader.html">
 <link rel="import" href="../elements/previous-speakers-block.html">
-<link rel="import" href="../elements/filter-menu.html">
+<!--<link rel="import" href="../elements/filter-menu.html">-->
 
 <dom-module id="speakers-page">
   <template>
@@ -93,8 +93,8 @@
       }
 
       .company-logo {
-        width: 100%;
-        height: 16px;
+        width: 100px;
+        height: 50px;
       }
 
       .description {
@@ -182,11 +182,11 @@
 
     <paper-progress indeterminate hidden$="[[contentLoaderVisibility]]"></paper-progress>
 
-    <filter-menu
+    <!--<filter-menu
       filters="[[_filters]]"
       selected="[[_selectedFilters]]"
       results-count="[[speakersToRender.length]]"
-    ></filter-menu>
+    ></filter-menu>-->
 
     <content-loader
       class="container"
@@ -267,7 +267,7 @@
       </template>
     </div>
 
-    <previous-speakers-block></previous-speakers-block>
+<!--    <previous-speakers-block></previous-speakers-block>-->
 
     <footer-block></footer-block>
 

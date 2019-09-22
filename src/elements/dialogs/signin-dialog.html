@@ -41,7 +41,7 @@
     </style>
 
     <div class="dialog-content">
-      <div class="initial-signin"  hidden$="[[isMergeState]]">
+      <!--<div class="initial-signin"  hidden$="[[isMergeState]]">
         {% for provider in signInProviders.providersData %}
         <paper-button
           class="sign-in-button"
@@ -57,7 +57,7 @@
           <span provider-url="{$ provider.url $}">{$ provider.label $}</span>
         </paper-button>
         {% endfor %}
-      </div>
+      </div>-->
       <div class="merge-content" hidden$="[[!isMergeState]]" >
         <h3 class="subtitle">{$ signInDialog.alreadyHaveAccount $}</h3>
         <div class="explanation">
